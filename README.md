@@ -4,4 +4,4 @@ Start:
   1. docker-compose up -d
   2. Access on localhost:80
 
-## Thanks to Prasta Maha
+## Thanks to Prasta Maha (https://github.com/prastamaha/moodle-docker)
