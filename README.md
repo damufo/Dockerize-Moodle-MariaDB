@@ -52,6 +52,14 @@ docker save -o moodle_20220902.tar moodle01
 docker exec -ti moodle /bin/bash
 ```
 
+Set max_input_vars to 5000
+```
+nano /etc/php/7.4/apache2/php.ini 
+```
+and set:
+```
+max_input_vars = 5000
+```
 
 ## Backup
 
