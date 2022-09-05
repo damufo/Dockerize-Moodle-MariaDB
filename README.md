@@ -8,9 +8,10 @@ Add a .env file
 touch .env
 ```
 Add inside:
+```
 DOMAIN_SERVER_BASE=your-domain.org
 MOODLE_DATA_FOLDER=/volume/path/moodle/moodledata
-
+```
 ## Start
 
 1. docker-compose up -d
