@@ -2,16 +2,24 @@ version: '3'
 
 services: 
  
-    app:
-        image: gilangvperdana/moodle
-        ports: 
-            - "9992:80" 
-        restart: always 
-        networks: 
-            - web
-        volumes:
-            - "./data/moodledata:/var/www/html/moodledata"
- 
+  moodle:
+    image: gilangvperdana/moodle
+    container_name: moodle
+    ports: 
+      - "9992:80" 
+    restart: always 
+    networks: 
+      - web
+    volumes:
+      - "${MOODLE_DATA_FOLDER}:/var/www/html/moodledata"
+    labels:
+      - traefik.http.routers.moodle.rule=Host(`moodle.${DOMAIN_SERVER_BASE}`)
+      - traefik.http.routers.moodle.tls=true
+      - traefik.http.routers.moodle.tls.certresolver=le
+      - traefik.http.middlewares.moodle.compress=true
+      - traefik.http.routers.moodle.middlewares=moodle@docker
+
 networks:
   web:
     external: true
+
