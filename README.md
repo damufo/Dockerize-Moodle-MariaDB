@@ -72,7 +72,7 @@ docker exec -i mariadb mariadb-dump -h127.0.0.1  -uroot -p$MYSQL_ROOT_PASSWORD m
 ### Moodledata
 
 ```
-sudo tar zcvf moodledata.tgz /home/damufo/data/moodle/moodledata
+sudo tar zcvf moodledata.tgz /volume/path/moodle/moodledata
 ```
 
 ## Set cron
