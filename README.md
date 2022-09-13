@@ -106,3 +106,28 @@ If not:
 service cron start
 ```
 
+# Upgrade
+Go into container to moodle folder in /var/www/html/moodle
+When upgrade from 4.0.3 to 4.0.4, git pull fail, because:
+"Your local changes to the following files will be overwritten by merge"
+```
+old mode 100644
+new mode 100755
+```
+
+The solution by khromov.se [1]
+
+```
+git diff -p -R --no-ext-diff --no-color \
+    | grep -E "^(diff|(old|new) mode)" --color=never  \
+    | git apply
+```
+then
+```
+git pull
+```
+
+
+Fonts:
+
+1 [khromov.se](https://snippets.khromov.se/reset-file-mode-chmod-changes-when-making-a-git-commit/)
